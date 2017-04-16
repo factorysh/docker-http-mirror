@@ -14,4 +14,4 @@ def catch_all(path):
                              sever=dict(hostname=platform.node())))
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
