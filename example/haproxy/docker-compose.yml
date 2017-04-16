@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+    alice:
+        hostname: alice
+        build:
+            context: ../../
+        ports:
+            - 5000
+
+    bob:
+        hostname: bob
+        build:
+            context: ../../
+        ports:
+            - 5000
+
+    haproxy:
+        image: haproxy:1.5
+        ports:
+            - 8000:8000
+        links:
+            - alice:alice
+            - bob:bob
+        volumes:
+            - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
