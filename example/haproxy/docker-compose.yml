@@ -16,7 +16,7 @@ services:
             - 5000
 
     haproxy:
-        image: haproxy:1.5
+        image: haproxy:1.5-alpine
         ports:
             - 8000:8000
         links:
