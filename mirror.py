@@ -2,9 +2,11 @@ import platform
 from flask import Flask, json, request
 
 app = Flask(__name__)
+ALL_METHODS = "GET POST PUT DELETE HEAD PATCH".split(' ')
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
+
+@app.route('/', defaults={'path': ''}, methods=ALL_METHODS)
+@app.route('/<path:path>', methods=ALL_METHODS)
 def catch_all(path):
     return json.jsonify(dict(request=dict(path=path,
                                           headers=dict(request.headers),
