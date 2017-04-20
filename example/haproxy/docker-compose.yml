@@ -18,16 +18,19 @@ services:
     log:
         build:
             context: ../../syslog
-        ports:
-            - 514/udp
+        command: python3 -u /syslogd.py --unix
+        volumes:
+            - ./tmp:/tmp
 
     haproxy:
         image: haproxy:1.5-alpine
         ports:
             - 8000:8000
+        depends_on:
+            - log
         links:
             - alice:alice
             - bob:bob
-            - log:log
         volumes:
             - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+            - ./tmp/log:/dev/log
