@@ -7,6 +7,8 @@ services:
             context: ../../
         ports:
             - 5000
+        networks:
+            - private
 
     bob:
         hostname: bob
@@ -14,20 +16,34 @@ services:
             context: ../../
         ports:
             - 5000
+        networks:
+            - private
 
     log:
         build:
             context: ../../syslog
         ports:
             - 514/udp
+        networks:
+            - private
 
     haproxy:
         image: haproxy:1.5-alpine
         ports:
-            - 8000:8000
+            - 8000:80
         links:
             - alice:alice
             - bob:bob
             - log:log
         volumes:
             - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+        networks:
+            public:
+                aliases:
+                    - front.example.com
+                    - cdn.example.com
+            private:
+
+networks:
+    public:
+    private:

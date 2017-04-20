@@ -4,14 +4,20 @@ HAproxy demo for Http-Mirror
 Up the brol
 -----------
 
-    docker-compose up -d
+    make server
 
 If you change the haproxy.cfg, reload the conf :
 
     docker kill -s HUP haproxy_haproxy_1
 
+Build httpie container :
+
+    make build-httpie
+
+Launch httpie in this context :
+
+    make httpie
+
 Test som urls :
 
-    curl 127.0.0.1:8000
-    curl 127.0.0.1:8000/bob
-
+    http front.example.com
