@@ -1,0 +1,18 @@
+{
+    "CN": "http-mirror",
+    "hosts": [
+        "alice.example.com",
+        "bob.example.com"
+    ],
+    "key": {
+        "algo": "ecdsa",
+        "size": 256
+    },
+    "names": [
+        {
+            "C": "FR",
+            "ST": "Paris"
+        }
+    ]
+}
+
