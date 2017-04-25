@@ -37,11 +37,14 @@ services:
             - log:log
         volumes:
             - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+            - ./crt:/etc/crt:ro
         networks:
             public:
                 aliases:
                     - front.example.com
                     - cdn.example.com
+                    - alice.example.com
+                    - bob.example.com
             private:
 
 networks:

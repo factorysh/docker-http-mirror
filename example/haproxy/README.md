@@ -12,17 +12,15 @@ If you change the haproxy.cfg, reload the conf :
 
 The proxy is available outside Docker, but there is more fun inside.
 
-[httpie](https://httpie.org/) is an opiniated and colorized curl like tool.
-I use it for pedagocial purpose, but similar stuff can be done with curl.
 
-Build httpie container :
+Build clurl container :
 
-    make build-httpie
+    make build-curl-image
 
-Launch httpie in this context :
+Launch curl in this context :
 
-    make httpie
+    make curl
 
 Test som urls :
 
-    http front.example.com
+    curl -vL alice.example.com

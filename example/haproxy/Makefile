@@ -1,8 +1,16 @@
-server:
+server: crt/server.crt+key
 	docker-compose up -d
 
-build-httpie:
-	docker build -t httpie ../../httpie
+crt:
+	mkdir crt
 
-httpie:
-	docker run -it --rm --network haproxy_public httpie
+crt/server.crt+key: crt
+	cat  ../../pki/server.pem ../../pki/server-key.pem > crt/server.crt+key
+
+
+build-curl-image:
+	cp ../../pki/ca.pem ../../curl/
+	docker build -t curl ../../curl
+
+curl:
+	docker run -it --rm --network haproxy_public curl
