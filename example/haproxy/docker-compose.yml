@@ -1,8 +1,17 @@
 version: '3'
 
 services:
-    alice:
-        hostname: alice
+    alice-front:
+        hostname: alice-front
+        build:
+            context: ../../
+        ports:
+            - 5000
+        networks:
+            - private
+
+    alice-back:
+        hostname: alice-back
         build:
             context: ../../
         ports:
@@ -32,7 +41,8 @@ services:
         ports:
             - 8000:80
         links:
-            - alice:alice
+            - alice-front:alice-front
+            - alice-back:alice-back
             - bob:bob
             - log:log
         volumes:

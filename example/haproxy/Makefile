@@ -1,3 +1,5 @@
+.PHONY: server
+
 server: crt/server.crt+key
 	docker-compose up -d
 
