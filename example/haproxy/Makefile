@@ -16,3 +16,6 @@ build-curl-image:
 
 curl:
 	docker run -it --rm --network haproxy_public curl
+
+logs:
+	docker-compose logs -f
