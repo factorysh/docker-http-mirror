@@ -14,3 +14,7 @@ Run it :
 
     docker run --rm -p 5000 mirror
 
+Licence
+-------
+
+3 terms BSD licence, ©Mathieu Lecarme
