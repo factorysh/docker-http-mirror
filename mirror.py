@@ -13,7 +13,7 @@ def catch_all(path):
                                           method=request.method,
                                           form=request.form,
                                           url=request.url),
-                             sever=dict(hostname=platform.node())))
+                             server=dict(hostname=platform.node())))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
