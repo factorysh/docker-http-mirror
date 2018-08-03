@@ -1,3 +1,5 @@
+---
+
 version: '3'
 
 services:
@@ -30,7 +32,7 @@ services:
 
     log:
         build:
-            context: ../../syslog
+            context: ./syslog
         ports:
             - 514/udp
         networks:
