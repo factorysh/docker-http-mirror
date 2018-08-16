@@ -10,6 +10,9 @@ build:
 push:
 	docker push bearstech/http-mirror:latest
 
+remove_image:
+	docker rmi bearstech/http-mirror:latest
+
 tests:
 	@echo "no tests"
 
