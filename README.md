@@ -8,11 +8,11 @@ Docker
 
 Build it :
 
-    docker build -t mirror .
+    make build
 
 Run it :
 
-    docker run --rm -p 5000 mirror
+    make run
 
 Licence
 -------
