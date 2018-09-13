@@ -12,6 +12,7 @@ def catch_all(path):
                                           headers=dict(request.headers),
                                           method=request.method,
                                           form=request.form,
+                                          remote=request.remote_addr,
                                           url=request.url),
                              server=dict(hostname=platform.node())))
 
