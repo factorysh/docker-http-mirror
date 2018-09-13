@@ -12,9 +12,10 @@ def catch_all(path):
                                           headers=dict(request.headers),
                                           method=request.method,
                                           form=request.form,
-                                          remote=request.remote_addr,
                                           url=request.url),
-                             server=dict(hostname=platform.node())))
+                             server=dict(hostname=platform.node(),
+                                          remote=request.remote_addr,
+                             )))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
