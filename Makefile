@@ -17,4 +17,4 @@ tests:
 	@echo "no tests"
 
 run:
-	docker run --rm -p 5000 mirror
+	docker run --rm -p 5000 bearstech/http-mirror:latest
