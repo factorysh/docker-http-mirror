@@ -34,7 +34,7 @@ In another shell, browse it
         "url": "http://0.0.0.0:5000/hello/world"
       },
       "server": {
-        "hostname": "Le-Gros-Macbook-de-Mathieu.local",
+        "hostname": "My-Computer.local",
         "remote": "127.0.0.1"
       }
     }
