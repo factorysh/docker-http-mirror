@@ -1,9 +1,9 @@
 Http mirror
 ===========
 
-A simple debugging tool for http routing and proxying.
+A simple http daemon for debugging http routing and proxying.
 
-Http-mirror response is JSON dump of the HTTP request.
+Http-mirror response's body is a JSON dump of the HTTP request.
 
 Demo
 ----
