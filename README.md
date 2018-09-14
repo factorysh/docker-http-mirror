@@ -3,6 +3,8 @@ Http mirror
 
 A simple debugging tool for http routing and proxying.
 
+Http-mirror response is JSON dump of the HTTP request.
+
 Demo
 ----
 
