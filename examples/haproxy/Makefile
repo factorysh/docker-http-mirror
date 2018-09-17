@@ -6,8 +6,11 @@ server: crt/server.crt+key
 crt:
 	mkdir crt
 
-crt/server.crt+key: crt
+crt/server.crt+key: crt pki/server.pem
 	cat pki/server.pem pki/server-key.pem > crt/server.crt+key
+
+pki/server.pem:
+	cd pki && make all
 
 build-curl-image:
 	cp pki/ca.pem curl/
@@ -18,3 +21,11 @@ curl:
 
 logs:
 	docker-compose logs -f
+
+clean:
+	rm -rf crt
+	rm -f curl/ca.pem
+	cd pki && make clean
+
+down:
+	docker-compose down
