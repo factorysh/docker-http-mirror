@@ -16,5 +16,7 @@ remove_image:
 tests:
 	@echo "no tests"
 
+down:
+
 run:
 	docker run --rm -p 5000 bearstech/http-mirror:latest
