@@ -1,3 +1,4 @@
+GIT_VERSION := $(shell git rev-parse HEAD)
 
 all: pull build
 
@@ -5,7 +6,10 @@ pull:
 	docker pull python:3-alpine
 
 build:
-	docker build -t bearstech/http-mirror:latest .
+	docker build \
+		--build-arg GIT_VERSION=${GIT_VERSION} \
+		-t bearstech/http-mirror:latest \
+		.
 
 push:
 	docker push bearstech/http-mirror:latest
