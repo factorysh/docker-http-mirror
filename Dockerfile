@@ -7,10 +7,22 @@ COPY mirror.py /mirror.py
 EXPOSE 5000
 USER nobody
 
-ARG GIT_VERSION
-LABEL com.bearstech.source.http-mirror=https://github.com/factorysh/docker-http-mirror/commit/${GIT_VERSION}
 
-ARG GIT_DATE
-LABEL com.bearstech.date.http-mirror=${GIT_DATE}
 
 CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:5000", "mirror:app"]
+
+# generated labels
+
+ARG GIT_VERSION
+ARG GIT_DATE
+ARG BUILD_DATE
+
+LABEL com.bearstech.image.revision_date=${GIT_DATE}
+
+LABEL org.opencontainers.image.authors=Bearstech
+
+LABEL org.opencontainers.image.revision=${GIT_VERSION}
+LABEL org.opencontainers.image.created=${BUILD_DATE}
+
+LABEL org.opencontainers.image.url=https://github.com/factorysh/docker-http-mirror
+LABEL org.opencontainers.image.source=https://github.com/factorysh/docker-http-mirror/blob/${GIT_VERSION}/Dockerfile
