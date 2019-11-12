@@ -5,7 +5,7 @@ include Makefile.build_args
 all: pull build
 
 pull:
-	docker pull python:3-alpine
+	docker pull python:3-slim
 
 build:
 	 docker build \
@@ -20,7 +20,8 @@ remove_image:
 	docker rmi bearstech/http-mirror:latest
 
 tests:
-	@echo "no tests"
+	# FIXME, it's a very cheap test
+	docker run --rm bearstech/http-mirror:latest gunicorn --version
 
 down:
 
