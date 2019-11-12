@@ -20,7 +20,8 @@ remove_image:
 	docker rmi bearstech/http-mirror:latest
 
 tests:
-	@echo "no tests"
+	# FIXME, it's a very cheap test
+	docker run -ti --rm bearstech/http-mirror:latest gunicorn --version
 
 down:
 

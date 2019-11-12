@@ -9,7 +9,8 @@ COPY mirror.py /mirror.py
 EXPOSE 5000
 USER nobody
 
-CMD ["/opt/mirror/bin/gunicorn", "-w", "2", "-b", "0.0.0.0:5000", "mirror:app"]
+ENV PATH=/opt/mirror/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:5000", "mirror:app"]
 
 # generated labels
 
