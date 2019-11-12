@@ -5,7 +5,7 @@ include Makefile.build_args
 all: pull build
 
 pull:
-	docker pull python:3-alpine
+	docker pull python:3-slim
 
 build:
 	 docker build \

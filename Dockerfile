@@ -1,15 +1,15 @@
-FROM python:3-alpine
+FROM python:3-slim
 
-RUN pip install flask gunicorn
+RUN python3 -m venv /opt/mirror \
+        && /opt/mirror/bin/pip install -U pip wheel \
+        && /opt/mirror/bin/pip install flask gunicorn
 
 COPY mirror.py /mirror.py
 
 EXPOSE 5000
 USER nobody
 
-
-
-CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:5000", "mirror:app"]
+CMD ["/opt/mirror/bin/gunicorn", "-w", "2", "-b", "0.0.0.0:5000", "mirror:app"]
 
 # generated labels
 
