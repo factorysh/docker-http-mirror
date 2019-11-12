@@ -21,7 +21,7 @@ remove_image:
 
 tests:
 	# FIXME, it's a very cheap test
-	docker run -ti --rm bearstech/http-mirror:latest gunicorn --version
+	docker run --rm bearstech/http-mirror:latest gunicorn --version
 
 down:
 
