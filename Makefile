@@ -24,6 +24,10 @@ tests:
 	docker run --rm bearstech/http-mirror:latest gunicorn --version
 
 down:
+	docker-compose down
+
+cfssl:
+	docker build -t cfssl https://github.com/cloudflare/cfssl/raw/master/Dockerfile
 
 run:
 	docker run --rm -p 5000 bearstech/http-mirror:latest
