@@ -28,7 +28,9 @@ down:
 	echo docker-compose down
 
 cfssl:
-	docker build -t cfssl https://github.com/cloudflare/cfssl/raw/master/Dockerfile
+	 docker build \
+		$(DOCKER_BUILD_ARGS) \
+		-t cfssl https://github.com/cloudflare/cfssl/raw/master/Dockerfile
 
 run:
 	docker run --rm -p 5000 bearstech/http-mirror:latest
