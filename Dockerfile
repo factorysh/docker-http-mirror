@@ -1,9 +1,11 @@
-FROM python:3-slim
+FROM bearstech/python-dev:3.9 AS src
 
 RUN python3 -m venv /opt/mirror \
         && /opt/mirror/bin/pip install -U pip wheel \
         && /opt/mirror/bin/pip install flask gunicorn
 
+FROM bearstech/python:3.9
+COPY --from=src /opt/mirror /opt/mirror
 COPY mirror.py /mirror.py
 
 EXPOSE 5000
